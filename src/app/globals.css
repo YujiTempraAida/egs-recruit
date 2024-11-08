@@ -19,3 +19,35 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Custom Fonts */
+/* AzeretSemiMono Font */
+@font-face {
+  font-family: 'AzeretSemiMono';
+  src: url('/fonts/AzeretSemiMono-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AzeretSemiMono';
+  src: url('/fonts/AzeretSemiMono-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* NotoSansCJKjp Font */
+@font-face {
+  font-family: 'NotoSansCJKjp';
+  src: url('/fonts/NotoSansCJKjp-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansCJKjp';
+  src: url('/fonts/NotoSansCJKjp-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
