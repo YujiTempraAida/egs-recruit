@@ -6,11 +6,24 @@ import Image from 'next/image'
 import { useState } from 'react'
 import './globals.css'
 
+interface Achievement {
+  title: string
+  url?: string
+  isYouTube: boolean
+  imgSrc?: string
+}
+
+interface Achievements {
+  Smash: Achievement[]
+  Works: Achievement[]
+  Miscs: Achievement[]
+}
+
 export default function HomePage() {
-  const [selectedCategory, setSelectedCategory] = useState('Works')
+  const [selectedCategory, setSelectedCategory] = useState<keyof Achievements>('Works')
 
   // 実績セクションのプレースホルダーリンクや画像
-  const achievements = {
+  const achievements : Achievements = {
     Smash: [
       { title: '篝火/配信制作', url: 'https://www.youtube.com/embed/i8ZnkVelisM', isYouTube: true },
     ],
@@ -47,7 +60,7 @@ export default function HomePage() {
           {['Smash', 'Works', 'Miscs'].map(category => (
             <div
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => setSelectedCategory(category as keyof Achievements)}
               style={{
                 cursor: 'pointer',
                 padding: '0.5rem 1rem',
@@ -78,7 +91,7 @@ export default function HomePage() {
               ) : (
                 <div className="flex justify-center">
                   <Image
-                    src={item.imgSrc}
+                    src={item.imgSrc || '/haishinchu.png'}  // デフォルト画像として /haishinchu.png を指定
                     alt={item.title}
                     width={600}
                     height={400}
